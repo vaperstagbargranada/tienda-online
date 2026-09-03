@@ -33,15 +33,43 @@
             font-size: 0.95em;
             text-transform: uppercase;
         }
-        .header .nav-links a { opacity: 0.8; transition: opacity 0.2s; cursor: pointer; }
-        .header .nav-links a:hover { opacity: 1; }
-        .header .nav-icons {
-            display: flex;
-            gap: 20px;
-            font-size: 1.2em;
+        .header .nav-links a { 
+            color: white; 
+            text-decoration: none; 
+            opacity: 0.8; 
+            transition: opacity 0.2s; 
+            cursor: pointer; 
         }
-        .header .nav-icons span { cursor: pointer; opacity: 0.8; transition: opacity 0.2s; }
-        .header .nav-icons span:hover { opacity: 1; }
+        .header .nav-links a:hover, .header .nav-links a.active { opacity: 1; color: #ffd700; }
+        
+        .header .nav-icons { display: flex; align-items: center; }
+        
+        /* CARRITO MINIMALISTA Y BLANCO */
+        .cart-icon-btn {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5px;
+        }
+        .cart-icon-btn svg { width: 26px; height: 26px; stroke: #ffffff; fill: none; }
+        .cart-badge {
+            position: absolute;
+            top: -2px;
+            right: -6px;
+            background: #e74c3c;
+            color: white;
+            font-size: 0.7em;
+            font-weight: bold;
+            border-radius: 50%;
+            padding: 2px 6px;
+            min-width: 18px;
+            text-align: center;
+        }
+
         .hero {
             position: relative;
             padding: 0;
@@ -74,6 +102,7 @@
         }
         .hero .hero-overlay h1 span { color: #ffd700; }
         .hero .hero-overlay p { font-size: 1.2em; opacity: 0.9; }
+
         .filters-bar {
             max-width: 1200px;
             margin: -20px auto 30px;
@@ -114,6 +143,7 @@
             margin: 10px 0 0;
             font-weight: 500;
         }
+
         .products-grid {
             max-width: 1200px;
             margin: 0 auto;
@@ -202,7 +232,6 @@
             align-items: center;
             padding-top: 14px;
             border-top: 1px solid #eee;
-            flex-wrap: wrap;
             gap: 8px;
         }
         .product-price {
@@ -210,13 +239,6 @@
             font-weight: 800;
             color: #1a1a2e;
         }
-        .product-stock {
-            font-size: 0.75em;
-            font-weight: 600;
-            color: #27ae60;
-        }
-        .product-stock.low { color: #e67e22; }
-        .product-stock.agotado { color: #e74c3c; }
         .btn-add {
             background: #1a1a2e;
             color: white;
@@ -232,6 +254,54 @@
         }
         .btn-add:hover { background: #2d2d4a; transform: scale(1.03); }
         .btn-add:disabled { background: #ccc; cursor: not-allowed; transform: none; }
+
+        /* MODAL LATERAL DE CARRITO */
+        .cart-modal {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 100%;
+            max-width: 380px;
+            height: 100%;
+            background: white;
+            box-shadow: -5px 0 25px rgba(0,0,0,0.2);
+            z-index: 2000;
+            transition: right 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .cart-modal.open { right: 0; }
+        .cart-header {
+            padding: 20px;
+            background: #1a1a2e;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .cart-body { flex: 1; padding: 20px; overflow-y: auto; }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        .cart-footer { padding: 20px; border-top: 1px solid #eee; background: #f9f9f9; }
+        .btn-checkout {
+            background: #25d366;
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        .close-cart { background: none; border: none; color: white; font-size: 1.5em; cursor: pointer; }
+
         .loading-container { text-align: center; padding: 80px 20px; }
         .spinner {
             width: 50px;
@@ -255,8 +325,9 @@
             border-top: 1px solid rgba(255,255,255,0.05);
         }
         .footer strong { color: white; }
+
         @media (max-width: 768px) {
-            .header { padding: 0 20px; height: 60px; flex-wrap: wrap; }
+            .header { padding: 0 20px; height: 60px; }
             .header .logo img { height: 30px; }
             .header .nav-links { display: none; }
             .hero .hero-overlay h1 { font-size: 2.2em; }
@@ -281,18 +352,25 @@
         <div class="logo">
             <img src="https://lh3.googleusercontent.com/d/1fvmWJNtu1aHjfku0rRuKA7lKxNExCmVj" alt="Logo Tienda">
         </div>
-        <div class="nav-links">
-            <a>Nuevos</a>
-            <a>Ofertas</a>
-            <a>JAGGER</a>
-            <a>4 IN 1</a>
-        </div>
+        <nav class="nav-links">
+            <a onclick="filterByNav('todos')">Todos</a>
+            <a onclick="filterByNav('nuevos')">Nuevos</a>
+            <a onclick="filterByNav('ofertas')">Ofertas</a>
+            <a onclick="filterByNav('JAGGER')">JAGGER</a>
+            <a onclick="filterByNav('4 IN 1')">4 IN 1</a>
+        </nav>
         <div class="nav-icons">
-            <span>🔍</span>
-            <span>🛒</span>
-            <span>👤</span>
+            <button class="cart-icon-btn" onclick="toggleCart()">
+                <svg viewBox="0 0 24 24" stroke-width="2">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                </svg>
+                <span class="cart-badge" id="cartCount">0</span>
+            </button>
         </div>
     </header>
+
     <section class="hero">
         <img src="https://lh3.googleusercontent.com/d/1x8-SPClNJ003F_qDaPc2Ymg95XUQvoVM" alt="Banner Tienda">
         <div class="hero-overlay">
@@ -300,6 +378,7 @@
             <p>Catálogo de Fragancias y Productos</p>
         </div>
     </section>
+
     <div class="filters-bar">
         <input type="text" id="searchInput" placeholder="Buscar productos..." oninput="filterProducts()">
         <select id="modeloFilter" onchange="filterProducts()">
@@ -315,28 +394,42 @@
             <option value="name">Nombre: A-Z</option>
         </select>
     </div>
+
     <div id="productsContainer">
         <div class="loading-container">
             <div class="spinner"></div>
             <p style="color: #666;">Cargando catálogo...</p>
         </div>
     </div>
+
+    <!-- MODAL LATERAL CARRITO -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-header">
+            <h3>Tu Carrito</h3>
+            <button class="close-cart" onclick="toggleCart()">&times;</button>
+        </div>
+        <div class="cart-body" id="cartItems"></div>
+        <div class="cart-footer">
+            <div style="display:flex; justify-content:space-between; margin-bottom:15px; font-weight:bold;">
+                <span>Total:</span>
+                <span id="cartTotal">€0.00</span>
+            </div>
+            <button class="btn-checkout" onclick="sendWhatsAppOrder()">Pedir por WhatsApp</button>
+        </div>
+    </div>
+
     <footer class="footer">
         &copy; 2026 <strong>Tienda Oficial</strong> — Todos los derechos reservados.
     </footer>
+
     <script>
-        // ============================================
-        // CONFIGURACIÓN - URL DE APPS SCRIPT
-        // ============================================
         const API_URL = "https://script.google.com/macros/s/AKfycbz1SX9RGnaLK-rkF7lxP8Brk172F0iX0sfHuTAtCGC1avOYuHlH5vZsxkDcQ2HjXnrH/exec";
 
         let allProducts = [];
         let filteredProducts = [];
         let modelosDisponibles = [];
+        let cart = [];
 
-        // ============================================
-        // CARGAR PRODUCTOS
-        // ============================================
         async function loadProducts() {
             const container = document.getElementById('productsContainer');
             container.innerHTML = `
@@ -368,15 +461,11 @@
                     <div class="no-results">
                         <h2>🔌 Error de conexión</h2>
                         <p>No se pudo conectar con la base de datos. Intenta de nuevo.</p>
-                        <p style="font-size:0.85em;color:#999;margin-top:8px;">${error.message}</p>
                     </div>
                 `;
             }
         }
 
-        // ============================================
-        // POBLAR FILTROS
-        // ============================================
         function populateFilters(products) {
             const categories = new Set();
             products.forEach(p => { 
@@ -403,9 +492,20 @@
             });
         }
 
-        // ============================================
-        // FILTRAR Y ORDENAR
-        // ============================================
+        function filterByNav(type) {
+            document.getElementById('searchInput').value = '';
+            const modelSelect = document.getElementById('modeloFilter');
+            
+            if (type === 'todos') {
+                modelSelect.value = 'all';
+            } else if (modelosDisponibles.includes(type)) {
+                modelSelect.value = type;
+            } else if (type === 'nuevos' || type === 'ofertas') {
+                document.getElementById('searchInput').value = type;
+            }
+            filterProducts();
+        }
+
         function filterProducts() {
             const search = document.getElementById('searchInput').value.toLowerCase().trim();
             const modelo = document.getElementById('modeloFilter').value;
@@ -438,9 +538,6 @@
             renderProducts(filteredProducts);
         }
 
-        // ============================================
-        // RENDERIZAR PRODUCTOS
-        // ============================================
         function renderProducts(products) {
             const container = document.getElementById('productsContainer');
 
@@ -466,7 +563,6 @@
                 const id = p.ID || p.id;
                 const urlRaw = p.ImagenURL || p.imagenURL || p.ImagenUrl || p["Imagen URL"] || '';
 
-                // Procesamiento directo de imagen de Drive
                 let imgSrc = '';
                 if (p.imagenBase64) {
                     imgSrc = p.imagenBase64;
@@ -483,11 +579,6 @@
                     ? `<img class="product-image" src="${imgSrc}" alt="${nombre}" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'product-image-placeholder\'>📷</div>';">`
                     : `<div class="product-image-placeholder">📷</div>`;
 
-                let stockClass = 'product-stock';
-                let stockText = `📦 ${stock} unidades`;
-                if (stock === 0) { stockClass += ' agotado'; stockText = '❌ Agotado'; }
-                else if (stock < 5) { stockClass += ' low'; stockText = `⚠️ Solo ${stock} disponibles`; }
-
                 const btnDisabled = stock === 0 ? 'disabled' : '';
                 const btnText = stock === 0 ? 'Agotado' : '🛒 Agregar';
 
@@ -502,10 +593,7 @@
                             <div class="product-name">${nombre}</div>
                             <div class="product-description">${descripcion}</div>
                             <div class="product-footer">
-                                <div>
-                                    <div class="product-price">${precio ? '€' + parseFloat(precio).toFixed(2) : 'Consultar'}</div>
-                                    <div class="${stockClass}">${stockText}</div>
-                                </div>
+                                <div class="product-price">${precio ? '€' + parseFloat(precio).toFixed(2) : 'Consultar'}</div>
                                 <button class="btn-add" ${btnDisabled} onclick="addToCart('${id}')">${btnText}</button>
                             </div>
                         </div>
@@ -517,22 +605,61 @@
             container.innerHTML = html;
         }
 
-        // ============================================
-        // CARRITO / PEDIDO
-        // ============================================
+        /* LÓGICA DE CARRITO */
         function addToCart(id) {
             const product = allProducts.find(p => (p.ID == id || p.id == id));
             if (!product) return;
+            cart.push(product);
+            updateCartUI();
+        }
 
-            const precio = (product.Precio || product.precio) ? parseFloat(product.Precio || product.precio).toFixed(2) : '0.00';
-            const nombre = product.Nombre || product.nombre || 'Producto';
-            const mensaje = `Hola! Quisiera información sobre: ${nombre} (${product.modelo || ''}) - €${precio}`;
+        function updateCartUI() {
+            document.getElementById('cartCount').textContent = cart.length;
+            const cartItems = document.getElementById('cartItems');
+            let total = 0;
+            
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<p style="text-align:center; color:#888;">El carrito está vacío</p>';
+            } else {
+                cartItems.innerHTML = cart.map((item, index) => {
+                    const price = parseFloat(item.Precio || item.precio || 0);
+                    total += price;
+                    return `
+                        <div class="cart-item">
+                            <div>
+                                <strong>${item.Nombre || item.nombre}</strong>
+                                <br><small>€${price.toFixed(2)}</small>
+                            </div>
+                            <button style="background:none; border:none; color:red; cursor:pointer;" onclick="removeFromCart(${index})">✕</button>
+                        </div>
+                    `;
+                }).join('');
+            }
+            document.getElementById('cartTotal').textContent = `€${total.toFixed(2)}`;
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        function toggleCart() {
+            document.getElementById('cartModal').classList.toggle('open');
+        }
+
+        function sendWhatsAppOrder() {
+            if (cart.length === 0) return;
+            let mensaje = "Hola! Quisiera realizar el siguiente pedido:\n\n";
+            let total = 0;
+            cart.forEach((item, i) => {
+                const price = parseFloat(item.Precio || item.precio || 0);
+                total += price;
+                mensaje += `${i + 1}. ${item.Nombre || item.nombre} - €${price.toFixed(2)}\n`;
+            });
+            mensaje += `\n*Total: €${total.toFixed(2)}*`;
             window.open(`https://wa.me/34000000000?text=${encodeURIComponent(mensaje)}`, '_blank');
         }
 
-        // ============================================
-        // INICIALIZACIÓN
-        // ============================================
         loadProducts();
     </script>
 </body>
