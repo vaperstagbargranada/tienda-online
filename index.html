@@ -51,7 +51,6 @@
         
         .header .nav-icons { display: flex; align-items: center; }
         
-        /* CARRITO MINIMALISTA */
         .cart-icon-btn {
             background: transparent;
             border: none;
@@ -108,9 +107,7 @@
             margin-bottom: 10px;
         }
         .hero .hero-overlay h1 span { color: #ffd700; }
-        .hero .hero-overlay p { font-size: 1.2em; opacity: 0.9; }
 
-        /* SECCIÓN DE BÚSQUEDA Y FILTROS */
         .search-filters-container {
             max-width: 1200px;
             margin: -25px auto 30px;
@@ -157,93 +154,24 @@
             box-shadow: 0 8px 25px rgba(0,0,0,0.12);
         }
 
-        .filters-wrapper {
-            position: relative;
-            width: 100%;
-            text-align: center;
+        .category-section {
+            max-width: 1200px;
+            margin: 0 auto 40px;
+            padding: 0 20px;
         }
-        .btn-toggle-filters {
-            width: 100%;
-            max-width: 280px;
-            margin: 0 auto;
-            background: linear-gradient(135deg, #1a1a2e 0%, #252542 100%);
-            color: #ffffff;
-            border: 1px solid rgba(255, 215, 0, 0.3);
-            padding: 10px 20px;
-            border-radius: 30px;
-            font-size: 0.85em;
-            font-weight: 700;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
+        .category-title {
+            font-size: 1.5em;
+            font-weight: 800;
+            color: #1a1a2e;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #ffd700;
+            display: inline-block;
             text-transform: uppercase;
             letter-spacing: 1px;
-            transition: all 0.3s ease;
-        }
-        .btn-toggle-filters svg {
-            width: 16px;
-            height: 16px;
-            stroke: #ffd700;
-            fill: none;
-            stroke-width: 2.2;
-        }
-        .btn-toggle-filters:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
-            border-color: #ffd700;
-        }
-        .filters-bar {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100%;
-            max-width: 700px;
-            background: white;
-            border-radius: 16px;
-            padding: 20px;
-            margin-top: 10px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-            display: none;
-            gap: 15px;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid #eaeaea;
-        }
-        .filters-bar.open {
-            display: flex;
-        }
-        .filters-bar select {
-            padding: 10px 16px;
-            border: 2px solid #e8e8e8;
-            border-radius: 8px;
-            font-size: 0.95em;
-            background: white;
-            min-width: 180px;
-            flex: 1;
-            transition: border-color 0.2s;
-            font-family: inherit;
-        }
-        .filters-bar select:focus {
-            outline: none;
-            border-color: #1a1a2e;
-        }
-        .results-count {
-            width: 100%;
-            text-align: center;
-            font-size: 0.9em;
-            color: #666;
-            margin: 10px 0 0;
-            font-weight: 500;
         }
 
         .products-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px 20px;
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
             gap: 25px;
@@ -371,16 +299,16 @@
 
         .load-more-container {
             text-align: center;
-            padding: 20px 0 60px;
+            margin-top: 20px;
         }
         .btn-load-more {
             background: white;
             color: #1a1a2e;
             border: 2px solid #1a1a2e;
-            padding: 10px 28px;
+            padding: 8px 24px;
             border-radius: 25px;
             font-weight: 700;
-            font-size: 0.9em;
+            font-size: 0.85em;
             cursor: pointer;
             transition: all 0.2s ease;
             text-transform: uppercase;
@@ -494,11 +422,7 @@
             transition: background 0.2s;
         }
         .btn-checkout:hover { background: #20ba5a; }
-        .btn-checkout svg {
-            width: 22px;
-            height: 22px;
-            fill: #ffffff;
-        }
+        .btn-checkout svg { width: 22px; height: 22px; fill: #ffffff; }
         .close-cart { background: none; border: none; color: white; font-size: 1.5em; cursor: pointer; }
 
         .loading-container { text-align: center; padding: 80px 20px; }
@@ -514,6 +438,7 @@
         @keyframes spin { to { transform: rotate(360deg); } }
         .no-results { text-align: center; padding: 80px 20px; color: #666; }
         .no-results h2 { font-size: 2em; color: #1a1a1a; margin-bottom: 8px; }
+        
         .footer {
             background: #1a1a2e;
             color: rgba(255,255,255,0.6);
@@ -529,14 +454,12 @@
             .header .logo img { height: 45px; width: 45px; }
             .header .nav-links { display: none; }
             .hero .hero-overlay h1 { font-size: 2em; }
-            .hero .hero-overlay p { font-size: 0.95em; }
-            .products-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; padding: 0 12px; }
+            .products-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
             .product-image { height: 160px; }
             .product-body { padding: 10px; }
             .product-name { font-size: 0.88em; }
             .product-price { font-size: 0.95em; }
             .btn-add { font-size: 0.65em; padding: 5px 8px; }
-            .filters-bar select { min-width: 100%; }
         }
     </style>
 </head>
@@ -546,9 +469,7 @@
             <img src="https://lh3.googleusercontent.com/d/1fvmWJNtu1aHjfku0rRuKA7lKxNExCmVj" alt="Logo Tienda">
         </div>
         <nav class="nav-links" id="navLinks">
-            <a onclick="filterByNav('todos')">Todos</a>
-            <a onclick="filterByNav('nuevos')">Nuevos</a>
-            <a onclick="filterByNav('ofertas')">Ofertas</a>
+            <a onclick="filterByNav('todos')" id="nav-todos" class="active">Todos</a>
         </nav>
         <div class="nav-icons">
             <button class="cart-icon-btn" onclick="toggleCart()">
@@ -566,12 +487,10 @@
         <img src="https://lh3.googleusercontent.com/d/1x8-SPClNJ003F_qDaPc2Ymg95XUQvoVM" alt="Banner Tienda">
         <div class="hero-overlay">
             <h1>NUEVA <span>COLECCIÓN</span></h1>
-            <p>Catálogo de Fragancias y Perfumes</p>
         </div>
     </section>
 
-    <!-- BÚSQUEDA Y FILTROS SEPARADOS -->
-    <div class="search-filters-container" id="searchFiltersContainer">
+    <div class="search-filters-container">
         <div class="search-box-wrapper">
             <svg class="search-icon-svg" viewBox="0 0 24 24">
                 <circle cx="11" cy="11" r="8"></circle>
@@ -579,31 +498,9 @@
             </svg>
             <input type="text" id="searchInput" class="main-search-input" placeholder="Buscar perfumes..." oninput="filterProducts()">
         </div>
-        
-        <div class="filters-wrapper" id="filtersWrapper">
-            <button class="btn-toggle-filters" onclick="toggleFiltersPanel(event)">
-                <svg viewBox="0 0 24 24">
-                    <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
-                </svg>
-                Filtros
-            </button>
-            <div class="filters-bar" id="filtersBar">
-                <select id="modeloFilter" onchange="filterProductsAndClose()">
-                    <option value="all">Todos los modelos</option>
-                </select>
-                <select id="categoryFilter" onchange="filterProductsAndClose()">
-                    <option value="all">Todas las categorías</option>
-                </select>
-                <select id="sortFilter" onchange="filterProductsAndClose()">
-                    <option value="default">Ordenar por</option>
-                    <option value="price-asc">Precio: menor a mayor</option>
-                    <option value="price-desc">Precio: mayor a menor</option>
-                    <option value="name">Nombre: A-Z</option>
-                </select>
-            </div>
-        </div>
     </div>
 
+    <!-- CONTENEDOR DE SECCIONES DINÁMICAS -->
     <div id="productsContainer">
         <div class="loading-container">
             <div class="spinner"></div>
@@ -611,7 +508,6 @@
         </div>
     </div>
 
-    <!-- MODAL LATERAL CARRITO -->
     <div class="cart-modal" id="cartModal">
         <div class="cart-header">
             <h3>Tu Carrito</h3>
@@ -638,29 +534,12 @@
         const API_URL = "https://script.google.com/macros/s/AKfycbwWbH-lfapTSCSUVqKhA8QII3FfWYkBhAEM9_E7op4EIkBuFIVxxeY37kNfUW0-x_4B/exec";
 
         let allProducts = [];
-        let filteredProducts = [];
         let modelosDisponibles = [];
         let cart = [];
         let currentNavFilter = 'todos';
-        let itemsToShow = 4;
-
-        function toggleFiltersPanel(event) {
-            event.stopPropagation();
-            document.getElementById('filtersBar').classList.toggle('open');
-        }
-
-        function filterProductsAndClose() {
-            filterProducts();
-            document.getElementById('filtersBar').classList.remove('open');
-        }
-
-        document.addEventListener('click', function(event) {
-            const wrapper = document.getElementById('filtersWrapper');
-            const filtersBar = document.getElementById('filtersBar');
-            if (wrapper && !wrapper.contains(event.target)) {
-                filtersBar.classList.remove('open');
-            }
-        });
+        
+        // Objeto para llevar el conteo de elementos visibles por sección (comienza en 4 para cada una)
+        let sectionLimits = {};
 
         async function loadProducts() {
             const container = document.getElementById('productsContainer');
@@ -678,132 +557,82 @@
                 if (data.success) {
                     allProducts = data.productos;
                     modelosDisponibles = data.modelos || [];
-                    populateNavAndFilters(allProducts);
-                    filterProducts();
+                    populateNav();
+                    initSectionLimits();
+                    renderSections();
                 } else {
-                    container.innerHTML = `
-                        <div class="no-results">
-                            <h2>⚠️ Error</h2>
-                            <p>${data.error || 'No se pudieron cargar los productos'}</p>
-                        </div>
-                    `;
+                    container.innerHTML = `<div class="no-results"><h2>⚠️ Error</h2><p>${data.error || 'No se pudieron cargar'}</p></div>`;
                 }
             } catch (error) {
-                container.innerHTML = `
-                    <div class="no-results">
-                        <h2>🔌 Error de conexión</h2>
-                        <p>No se pudo conectar con la base de datos. Intenta de nuevo.</p>
-                    </div>
-                `;
+                container.innerHTML = `<div class="no-results"><h2>🔌 Error de conexión</h2><p>Intenta de nuevo.</p></div>`;
             }
         }
 
-        function populateNavAndFilters(products) {
+        function populateNav() {
             const navLinks = document.getElementById('navLinks');
-            navLinks.innerHTML = `
-                <a onclick="filterByNav('todos')">Todos</a>
-                <a onclick="filterByNav('nuevos')">Nuevos</a>
-                <a onclick="filterByNav('ofertas')">Ofertas</a>
-            `;
+            navLinks.innerHTML = `<a onclick="filterByNav('todos')" id="nav-todos" class="active">Todos</a>`;
             modelosDisponibles.forEach(m => {
                 const a = document.createElement('a');
                 a.onclick = () => filterByNav(m);
+                a.id = `nav-${m}`;
                 a.textContent = m;
                 navLinks.appendChild(a);
             });
+        }
 
-            const categories = new Set();
-            products.forEach(p => { 
-                const cat = p.Categoría || p.Categoria || p.categoria;
-                if (cat) categories.add(cat); 
-            });
-
-            const catSelect = document.getElementById('categoryFilter');
-            catSelect.innerHTML = '<option value="all">Todas las categorías</option>';
-            categories.forEach(cat => {
-                const opt = document.createElement('option');
-                opt.value = cat;
-                opt.textContent = cat;
-                catSelect.appendChild(opt);
-            });
-
-            const modelSelect = document.getElementById('modeloFilter');
-            modelSelect.innerHTML = '<option value="all">Todos los modelos</option>';
-            modelosDisponibles.forEach(m => {
-                const opt = document.createElement('option');
-                opt.value = m;
-                opt.textContent = m;
-                modelSelect.appendChild(opt);
+        function initSectionLimits() {
+            sectionLimits = {};
+            allProducts.forEach(p => {
+                const modelo = p.modelo ? p.modelo.toUpperCase() : 'GENERAL';
+                if (!sectionLimits[modelo]) {
+                    sectionLimits[modelo] = 4;
+                }
             });
         }
 
         function filterByNav(type) {
             currentNavFilter = type;
-            document.getElementById('searchInput').value = '';
-            const modelSelect = document.getElementById('modeloFilter');
+            document.querySelectorAll('.nav-links a').forEach(el => el.classList.remove('active'));
+            const activeEl = document.getElementById(`nav-${type}`);
+            if (activeEl) activeEl.classList.add('active');
             
-            if (type === 'todos' || type === 'nuevos' || type === 'ofertas') {
-                modelSelect.value = 'all';
-            } else if (modelosDisponibles.includes(type)) {
-                modelSelect.value = type;
-            }
-            filterProducts();
+            // Reiniciar límites al cambiar de navegación
+            initSectionLimits();
+            renderSections();
         }
 
         function filterProducts() {
-            itemsToShow = 4;
-            const search = document.getElementById('searchInput').value.toLowerCase().trim();
-            const modelo = document.getElementById('modeloFilter').value;
-            const category = document.getElementById('categoryFilter').value;
-            const sort = document.getElementById('sortFilter').value;
+            initSectionLimits();
+            renderSections();
+        }
 
-            filteredProducts = allProducts.filter(p => {
+        function loadMoreSection(modelo) {
+            if (!sectionLimits[modelo]) {
+                sectionLimits[modelo] = 4;
+            }
+            sectionLimits[modelo] += 4;
+            renderSections();
+        }
+
+        function renderSections() {
+            const container = document.getElementById('productsContainer');
+            const search = document.getElementById('searchInput').value.toLowerCase().trim();
+
+            let productsToDisplay = allProducts.filter(p => {
                 const id = String(p.ID || p.id || '').trim();
                 const nombre = String(p.Nombre || p.nombre || '').trim();
                 const desc = p.Descripción || p.Descripcion || p.descripcion || '';
-                const cat = p.Categoría || p.Categoria || p.categoria || '';
-                const esNuevo = String(p.Nuevo || p.nuevo || '').trim().toLowerCase() === 'sí' || String(p.Nuevo || p.nuevo || '').trim().toLowerCase() === 'si';
-
                 if (!id && !nombre) return false;
 
                 const matchSearch = nombre.toLowerCase().includes(search) || desc.toLowerCase().includes(search);
-                const matchModelo = modelo === 'all' || p.modelo === modelo;
-                const matchCategory = category === 'all' || cat === category;
-
                 let matchNav = true;
-                if (currentNavFilter === 'nuevos') {
-                    matchNav = esNuevo;
-                } else if (currentNavFilter === 'ofertas') {
-                    matchNav = desc.toLowerCase().includes('oferta') || nombre.toLowerCase().includes('oferta');
+                if (currentNavFilter !== 'todos') {
+                    matchNav = p.modelo === currentNavFilter;
                 }
-
-                return matchSearch && matchModelo && matchCategory && matchNav;
+                return matchSearch && matchNav;
             });
 
-            switch (sort) {
-                case 'price-asc':
-                    filteredProducts.sort((a, b) => parseFloat(a.Precio || a.precio || 0) - parseFloat(b.Precio || b.precio || 0));
-                    break;
-                case 'price-desc':
-                    filteredProducts.sort((a, b) => parseFloat(b.Precio || b.precio || 0) - parseFloat(a.Precio || a.precio || 0));
-                    break;
-                case 'name':
-                    filteredProducts.sort((a, b) => (a.Nombre || a.nombre || '').localeCompare(b.Nombre || b.nombre || ''));
-                    break;
-            }
-
-            renderProducts();
-        }
-
-        function loadMoreProducts() {
-            itemsToShow += 4;
-            renderProducts();
-        }
-
-        function renderProducts() {
-            const container = document.getElementById('productsContainer');
-
-            if (!filteredProducts || filteredProducts.length === 0) {
+            if (productsToDisplay.length === 0) {
                 container.innerHTML = `
                     <div class="no-results">
                         <h2>🔍 Sin resultados</h2>
@@ -813,74 +642,89 @@
                 return;
             }
 
-            const visibleProducts = filteredProducts.slice(0, itemsToShow);
-
-            let html = `<div class="results-count">Mostrando ${visibleProducts.length} de ${filteredProducts.length} producto${filteredProducts.length > 1 ? 's' : ''}</div>`;
-            html += `<div class="products-grid">`;
-
-            visibleProducts.forEach(p => {
-                const nombre = p.Nombre || p.nombre || 'Producto';
-                const descripcion = p.Descripción || p.Descripcion || p.descripcion || 'Sin descripción';
-                const categoria = p.Categoría || p.Categoria || p.categoria || '';
-                const precio = p.Precio || p.precio;
-                const stock = parseInt(p.Stock || p.stock) || 0;
-                const id = p.ID || p.id;
-                const esNuevo = String(p.Nuevo || p.nuevo || '').trim().toLowerCase() === 'sí' || String(p.Nuevo || p.nuevo || '').trim().toLowerCase() === 'si';
-                const urlRaw = p.ImagenURL || p.imagenURL || p.ImagenUrl || p["Imagen URL"] || '';
-
-                let imgSrc = '';
-                if (p.imagenBase64) {
-                    imgSrc = p.imagenBase64;
-                } else if (urlRaw) {
-                    const match = urlRaw.match(/\/d\/([a-zA-Z0-9_-]+)/) || urlRaw.match(/id=([a-zA-Z0-9_-]+)/);
-                    if (match && match[1]) {
-                        imgSrc = `https://lh3.googleusercontent.com/d/${match[1]}`;
-                    } else {
-                        imgSrc = urlRaw;
-                    }
-                }
-
-                const imgHTML = imgSrc 
-                    ? `<img class="product-image" src="${imgSrc}" alt="${nombre}" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'product-image-placeholder\'>🌸</div>';">`
-                    : `<div class="product-image-placeholder">🌸</div>`;
-
-                const btnDisabled = stock === 0 ? 'disabled' : '';
-                const btnContent = stock === 0 ? 'Agotado' : `
-                    <svg viewBox="0 0 24 24" stroke-width="2">
-                        <circle cx="9" cy="21" r="1"></circle>
-                        <circle cx="20" cy="21" r="1"></circle>
-                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                    </svg> Añadir
-                `;
-
-                html += `
-                    <div class="product-card">
-                        ${imgHTML}
-                        <div class="product-body">
-                            <div class="product-tags">
-                                ${esNuevo ? `<span class="badge-nuevo">NUEVO</span>` : ''}
-                                ${p.modelo ? `<span class="product-model">${p.modelo}</span>` : ''}
-                                ${categoria ? `<span class="product-category">${categoria}</span>` : ''}
-                            </div>
-                            <div class="product-name">${nombre}</div>
-                            <div class="product-description">${descripcion}</div>
-                            <div class="product-footer">
-                                <div class="product-price">${precio ? parseFloat(precio).toFixed(2) + ' €' : 'Consultar'}</div>
-                                <button class="btn-add" ${btnDisabled} onclick="addToCart('${id}')">${btnContent}</button>
-                            </div>
-                        </div>
-                    </div>
-                `;
+            let groups = {};
+            productsToDisplay.forEach(p => {
+                const modelo = p.modelo ? p.modelo.toUpperCase() : 'GENERAL';
+                if (!groups[modelo]) groups[modelo] = [];
+                groups[modelo].push(p);
             });
 
-            html += `</div>`;
+            let html = '';
+            for (const [modelo, products] of Object.entries(groups)) {
+                if (!sectionLimits[modelo]) sectionLimits[modelo] = 4;
+                const limit = sectionLimits[modelo];
+                const visibleProducts = products.slice(0, limit);
 
-            if (itemsToShow < filteredProducts.length) {
                 html += `
-                    <div class="load-more-container">
-                        <button class="btn-load-more" onclick="loadMoreProducts()">Ver más productos</button>
-                    </div>
+                    <div class="category-section">
+                        <h2 class="category-title">${modelo}</h2>
+                        <div class="products-grid">
                 `;
+
+                visibleProducts.forEach(p => {
+                    const nombre = p.Nombre || p.nombre || 'Producto';
+                    const descripcion = p.Descripción || p.Descripcion || p.descripcion || 'Sin descripción';
+                    const categoria = p.Categoría || p.Categoria || p.categoria || '';
+                    const precio = p.Precio || p.precio;
+                    const stock = parseInt(p.Stock || p.stock) || 0;
+                    const id = p.ID || p.id;
+                    const esNuevo = String(p.Nuevo || p.nuevo || '').trim().toLowerCase() === 'sí' || String(p.Nuevo || p.nuevo || '').trim().toLowerCase() === 'si';
+                    const urlRaw = p.ImagenURL || p.imagenURL || p.ImagenUrl || p["Imagen URL"] || '';
+
+                    let imgSrc = '';
+                    if (p.imagenBase64) {
+                        imgSrc = p.imagenBase64;
+                    } else if (urlRaw) {
+                        const match = urlRaw.match(/\/d\/([a-zA-Z0-9_-]+)/) || urlRaw.match(/id=([a-zA-Z0-9_-]+)/);
+                        imgSrc = match && match[1] ? `https://lh3.googleusercontent.com/d/${match[1]}` : urlRaw;
+                    }
+
+                    const imgHTML = imgSrc 
+                        ? `<img class="product-image" src="${imgSrc}" alt="${nombre}" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'product-image-placeholder\'>🌸</div>';">`
+                        : `<div class="product-image-placeholder">🌸</div>`;
+
+                    const btnDisabled = stock === 0 ? 'disabled' : '';
+                    const modeloEtiqueta = p.modelo ? p.modelo.toUpperCase() : 'AGREGAR';
+                    const btnContent = stock === 0 ? 'Agotado' : `
+                        <svg viewBox="0 0 24 24" stroke-width="2">
+                            <circle cx="9" cy="21" r="1"></circle>
+                            <circle cx="20" cy="21" r="1"></circle>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                        </svg> ${modeloEtiqueta}
+                    `;
+
+                    html += `
+                        <div class="product-card">
+                            ${imgHTML}
+                            <div class="product-body">
+                                <div class="product-tags">
+                                    ${esNuevo ? `<span class="badge-nuevo">NUEVO</span>` : ''}
+                                    ${p.modelo ? `<span class="product-model">${p.modelo}</span>` : ''}
+                                    ${categoria ? `<span class="product-category">${categoria}</span>` : ''}
+                                </div>
+                                <div class="product-name">${nombre}</div>
+                                <div class="product-description">${descripcion}</div>
+                                <div class="product-footer">
+                                    <div class="product-price">${precio ? parseFloat(precio).toFixed(2) + ' €' : 'Consultar'}</div>
+                                    <button class="btn-add" ${btnDisabled} onclick="addToCart('${id}')">${btnContent}</button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+
+                html += `</div>`;
+
+                // Botón "Ver más" específico para esta sección si hay más productos ocultos
+                if (limit < products.length) {
+                    html += `
+                        <div class="load-more-container">
+                            <button class="btn-load-more" onclick="loadMoreSection('${modelo}')">Ver más de ${modelo}</button>
+                        </div>
+                    `;
+                }
+
+                html += `</div>`;
             }
 
             container.innerHTML = html;
@@ -917,18 +761,12 @@
         }
 
         function handleQuantityKeydown(event, index) {
-            if (event.key === 'Enter') {
-                event.target.blur();
-            }
+            if (event.key === 'Enter') event.target.blur();
         }
 
         function applyQuantityInput(index, value) {
             const parsed = parseInt(value);
-            if (!isNaN(parsed) && parsed > 0) {
-                cart[index].cantidad = parsed;
-            } else {
-                cart[index].cantidad = 1;
-            }
+            cart[index].cantidad = (!isNaN(parsed) && parsed > 0) ? parsed : 1;
             updateCartUI();
         }
 
@@ -955,7 +793,7 @@
                         <div class="cart-item">
                             <div>
                                 <strong>${item.nombre}</strong>
-                                <div style="font-size:0.85em; color:#666;">${item.precio.toFixed(2)} € precio por unidad</div>
+                                <div style="font-size:0.85em; color:#666;">${item.precio.toFixed(2)} € unidad</div>
                             </div>
                             <div style="display:flex; align-items:center; gap:8px;">
                                 <div class="qty-controls">
@@ -965,7 +803,7 @@
                                            onblur="applyQuantityInput(${index}, this.value)">
                                     <button class="btn-qty" onclick="changeQuantity(${index}, 1)">+</button>
                                 </div>
-                                <button class="btn-trash" onclick="removeFromCart(${index})" title="Eliminar producto">
+                                <button class="btn-trash" onclick="removeFromCart(${index})" title="Eliminar">
                                     <svg viewBox="0 0 24 24">
                                         <polyline points="3 6 5 6 21 6"></polyline>
                                         <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
@@ -998,7 +836,6 @@
             });
             
             mensaje += `\n*Total: ${total.toFixed(2)} €*`;
-            
             const phone = "34614089152";
             window.open(`https://wa.me/${phone}?text=${encodeURIComponent(mensaje)}`, '_blank');
         }
