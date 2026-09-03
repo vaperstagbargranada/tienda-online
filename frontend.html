@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda - JAGGER & 4 IN 1</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f6fa;
+            min-height: 100vh;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px 30px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            font-size: 2.8em;
+            margin-bottom: 5px;
+        }
+        
+        .header .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .header .modelos-badge {
+            margin-top: 15px;
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .header .modelo-tag {
+            background: rgba(255,255,255,0.2);
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+        
+        .filters {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .filters select, .filters input {
+            padding: 12px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 16px;
+            background: white;
+            min-width: 180px;
+            transition: border-color 0.3s;
+        }
+        
+        .filters select:focus, .filters input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .products-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            background: #f0f0f0;
+        }
+        
+        .product-image-placeholder {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 3em;
+        }
+        
+        .product-body {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .product-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+        }
+        
+        .product-model {
+            display: inline-block;
+            background: #764ba2;
+            color: white;
+            padding: 3px 12px;
+            border-radius: 20px;
+            font-size: 0.7em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .product-category {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 3px 12px;
+            border-radius: 20px;
+            font-size: 0.7em;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .product-name {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+        
+        .product-description {
+            color: #7f8c8d;
+            font-size: 0.95em;
+            line-height: 1.5;
+            margin-bottom: 15px;
+            flex: 1;
+        }
+        
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 2px solid #f0f0f0;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .product-price {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #667eea;
+        }
+        
+        .product-stock {
+            font-size: 0.85em;
+            color: #27ae60;
+            font-weight: 600;
+        }
+        
+        .product-stock.low {
+            color: #e74c3c;
+        }
+        
+        .btn-add {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            font-size: 0.95em;
+        }
+        
+        .btn-add:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-add:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .loading-container {
+            text-align: center;
+            padding: 60px 20px;
+        }
+        
+        .spinner {
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #667eea;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            color: #7f8c8d;
+        }
+        
+        .no-results h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        
+        .results-count {
+            text-align: center;
+            color: #666;
+            padding: 10px 20px;
+            font-size: 0.95em;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 20px;
+                padding: 15px;
+            }
+            
+            .filters {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .filters select, .filters input {
+                min-width: unset;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>🛍️ Tienda Online</h1>
+        <p class="subtitle">Modelos <strong>JAGGER</strong> y <strong>4 IN 1</strong></p>
+        <div class="modelos-badge" id="modelosBadge">
+            <span class="modelo-tag">📦 Cargando modelos...</span>
+        </div>
+    </header>
+    
+    <div class="filters">
+        <input type="text" id="searchInput" placeholder="🔍 Buscar productos..." oninput="filterProducts()">
+        <select id="modeloFilter" onchange="filterProducts()">
+            <option value="all">Todos los modelos</option>
+        </select>
+        <select id="categoryFilter" onchange="filterProducts()">
+            <option value="all">Todas las categorías</option>
+        </select>
+        <select id="sortFilter" onchange="filterProducts()">
+            <option value="default">Ordenar por</option>
+            <option value="price-asc">Precio: menor a mayor</option>
+            <option value="price-desc">Precio: mayor a menor</option>
+            <option value="name">Nombre: A-Z</option>
+        </select>
+    </div>
+    
+    <div id="productsContainer">
+        <div class="loading-container">
+            <div class="spinner"></div>
+            <p style="color: #7f8c8d; font-size: 1.1em;">Cargando productos...</p>
+        </div>
+    </div>
+
+    <script>
+        // ============================================
+        // CONFIGURACIÓN - URL DE TU API
+        // ============================================
+        const API_URL = "https://script.google.com/macros/s/AKfycbwhVw_mk6dPeYo8y2-x0hPspuzxRqx4LKYLXSGXMhNmkBdtI7yka0v2KRdGkPniBaLc/exec";
+        
+        let allProducts = [];
+        let filteredProducts = [];
+        let modelosDisponibles = [];
+        
+        // ============================================
+        // CARGAR PRODUCTOS Y MODELOS
+        // ============================================
+        async function loadProducts() {
+            const container = document.getElementById('productsContainer');
+            container.innerHTML = `
+                <div class="loading-container">
+                    <div class="spinner"></div>
+                    <p style="color: #7f8c8d; font-size: 1.1em;">Cargando productos...</p>
+                </div>
+            `;
+            
+            try {
+                const response = await fetch(`${API_URL}?action=obtenerTodos`);
+                const data = await response.json();
+                
+                if (data.success) {
+                    allProducts = data.productos;
+                    modelosDisponibles = data.modelos || [];
+                    
+                    // Actualizar badges de modelos en el header
+                    const badgeContainer = document.getElementById('modelosBadge');
+                    if (modelosDisponibles.length > 0) {
+                        badgeContainer.innerHTML = modelosDisponibles.map(m => 
+                            `<span class="modelo-tag">🏷️ ${m}</span>`
+                        ).join('');
+                    } else {
+                        badgeContainer.innerHTML = '<span class="modelo-tag">No hay modelos disponibles</span>';
+                    }
+                    
+                    populateFilters(allProducts);
+                    filterProducts();
+                } else {
+                    container.innerHTML = `
+                        <div class="no-results">
+                            <h2>❌ Error</h2>
+                            <p>${data.error || 'No se pudieron cargar los productos'}</p>
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                container.innerHTML = `
+                    <div class="no-results">
+                        <h2>⚠️ Error de conexión</h2>
+                        <p>No se pudo conectar con la tienda. Intenta de nuevo más tarde.</p>
+                        <p style="font-size: 0.85em; color: #999; margin-top: 10px;">${error.message}</p>
+                    </div>
+                `;
+            }
+        }
+        
+        // ============================================
+        // POBLAR FILTROS
+        // ============================================
+        function populateFilters(products) {
+            // Categorías
+            const categories = new Set();
+            products.forEach(p => {
+                if (p.Categoría) categories.add(p.Categoría);
+            });
+            
+            const catSelect = document.getElementById('categoryFilter');
+            catSelect.innerHTML = '<option value="all">Todas las categorías</option>';
+            categories.forEach(cat => {
+                const option = document.createElement('option');
+                option.value = cat;
+                option.textContent = cat;
+                catSelect.appendChild(option);
+            });
+            
+            // Modelos
+            const modelSelect = document.getElementById('modeloFilter');
+            modelSelect.innerHTML = '<option value="all">Todos los modelos</option>';
+            modelosDisponibles.forEach(modelo => {
+                const option = document.createElement('option');
+                option.value = modelo;
+                option.textContent = modelo;
+                modelSelect.appendChild(option);
+            });
+        }
+        
+        // ============================================
+        // FILTRAR Y ORDENAR PRODUCTOS
+        // ============================================
+        function filterProducts() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase().trim();
+            const modelo = document.getElementById('modeloFilter').value;
+            const category = document.getElementById('categoryFilter').value;
+            const sort = document.getElementById('sortFilter').value;
+            
+            filteredProducts = allProducts.filter(product => {
+                const matchesSearch = (product.Nombre || '').toLowerCase().includes(searchTerm) ||
+                                     (product.Descripción || '').toLowerCase().includes(searchTerm);
+                const matchesModelo = modelo === 'all' || product.modelo === modelo;
+                const matchesCategory = category === 'all' || product.Categoría === category;
+                return matchesSearch && matchesModelo && matchesCategory;
+            });
+            
+            switch(sort) {
+                case 'price-asc':
+                    filteredProducts.sort((a, b) => parseFloat(a.Precio || 0) - parseFloat(b.Precio || 0));
+                    break;
+                case 'price-desc':
+                    filteredProducts.sort((a, b) => parseFloat(b.Precio || 0) - parseFloat(a.Precio || 0));
+                    break;
+                case 'name':
+                    filteredProducts.sort((a, b) => (a.Nombre || '').localeCompare(b.Nombre || ''));
+                    break;
+            }
+            
+            renderProducts(filteredProducts);
+        }
+        
+        // ============================================
+        // RENDERIZAR PRODUCTOS
+        // ============================================
+        function renderProducts(products) {
+            const container = document.getElementById('productsContainer');
+            
+            if (products.length === 0) {
+                container.innerHTML = `
+                    <div class="no-results">
+                        <h2>🔍 Sin resultados</h2>
+                        <p>No encontramos productos que coincidan con tu búsqueda</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            container.innerHTML = `
+                <div class="results-count">Mostrando ${products.length} producto${products.length > 1 ? 's' : ''}</div>
+                <div class="products-grid">
+                    ${products.map(product => `
+                        <div class="product-card">
+                            ${product.ImagenURL ? 
+                                `<img class="product-image" src="${product.ImagenURL}" alt="${product.Nombre || 'Producto'}" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22300%22><rect width=%22300%22 height=%22300%22 fill=%22%23f0f0f0%22/><text x=%2250%%22 y=%2250%%22 font-family=%22Arial%22 font-size=%2230%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22>📷</text></svg>'">` :
+                                `<div class="product-image-placeholder">📷</div>`
+                            }
+                            <div class="product-body">
+                                <div class="product-tags">
+                                    ${product.modelo ? `<span class="product-model">${product.modelo}</span>` : ''}
+                                    ${product.Categoría ? `<span class="product-category">${product.Categoría}</span>` : ''}
+                                </div>
+                                <h3 class="product-name">${product.Nombre || 'Producto sin nombre'}</h3>
+                                <p class="product-description">${product.Descripción || 'Sin descripción'}</p>
+                                <div class="product-footer">
+                                    <div>
+                                        <div class="product-price">${product.Precio ? '€' + parseFloat(product.Precio).toFixed(2) : 'Precio no disponible'}</div>
+                                        <div class="product-stock ${parseInt(product.Stock) < 5 ? 'low' : ''}">
+                                            ${parseInt(product.Stock) > 0 ? `📦 ${product.Stock} unidades` : '❌ Agotado'}
+                                        </div>
+                                    </div>
+                                    <button class="btn-add" ${parseInt(product.Stock) <= 0 ? 'disabled' : ''} onclick="addToCart(${product.ID})">
+                                        ${parseInt(product.Stock) > 0 ? '🛒 Agregar' : 'Agotado'}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        }
+        
+        // ============================================
+        // CARRITO (Simulación)
+        // ============================================
+        function addToCart(id) {
+            const product = allProducts.find(p => p.ID == id);
+            if (!product) return;
+            
+            alert(`✅ Agregado al carrito:\n\n${product.Nombre}\nModelo: ${product.modelo || 'N/A'}\nPrecio: €${parseFloat(product.Precio).toFixed(2)}\n\n(Implementa tu propio carrito aquí)`);
+        }
+        
+        // ============================================
+        // INICIAR
+        // ============================================
+        loadProducts();
+    </script>
+</body>
+</html>
