@@ -3,32 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vaperstag - Tienda Oficial</title>
+    <title>Tienda Oficial</title>
     <style>
-        /* ========================================
-           RESET Y ESTILOS BASE
-           ======================================== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
             background: #f4f4f4;
             color: #1a1a1a;
             min-height: 100vh;
         }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        /* ========================================
-           HEADER - ESTILO ADIDAS
-           ======================================== */
         .header {
             background: #1a1a2e;
             color: white;
@@ -42,13 +25,7 @@
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
-
-        .header .logo img {
-            height: 40px;
-            width: auto;
-            display: block;
-        }
-
+        .header .logo img { height: 40px; width: auto; display: block; }
         .header .nav-links {
             display: flex;
             gap: 30px;
@@ -56,32 +33,15 @@
             font-size: 0.95em;
             text-transform: uppercase;
         }
-        .header .nav-links a {
-            opacity: 0.8;
-            transition: opacity 0.2s;
-            cursor: pointer;
-        }
-        .header .nav-links a:hover {
-            opacity: 1;
-        }
-
+        .header .nav-links a { opacity: 0.8; transition: opacity 0.2s; cursor: pointer; }
+        .header .nav-links a:hover { opacity: 1; }
         .header .nav-icons {
             display: flex;
             gap: 20px;
             font-size: 1.2em;
         }
-        .header .nav-icons span {
-            cursor: pointer;
-            opacity: 0.8;
-            transition: opacity 0.2s;
-        }
-        .header .nav-icons span:hover {
-            opacity: 1;
-        }
-
-        /* ========================================
-           HERO / BANNER
-           ======================================== */
+        .header .nav-icons span { cursor: pointer; opacity: 0.8; transition: opacity 0.2s; }
+        .header .nav-icons span:hover { opacity: 1; }
         .hero {
             position: relative;
             padding: 0;
@@ -112,21 +72,12 @@
             letter-spacing: -2px;
             margin-bottom: 10px;
         }
-        .hero .hero-overlay h1 span {
-            color: #ffd700;
-        }
-        .hero .hero-overlay p {
-            font-size: 1.2em;
-            opacity: 0.9;
-        }
-
-        /* ========================================
-           FILTROS - ESTILO ADIDAS
-           ======================================== */
+        .hero .hero-overlay h1 span { color: #ffd700; }
+        .hero .hero-overlay p { font-size: 1.2em; opacity: 0.9; }
         .filters-bar {
             max-width: 1200px;
             margin: -20px auto 30px;
-            padding: 0 20px;
+            padding: 15px 25px;
             display: flex;
             gap: 15px;
             flex-wrap: wrap;
@@ -134,7 +85,6 @@
             justify-content: center;
             background: white;
             border-radius: 12px;
-            padding: 15px 25px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.06);
             position: relative;
             z-index: 10;
@@ -155,10 +105,7 @@
             outline: none;
             border-color: #1a1a2e;
         }
-        .filters-bar input::placeholder {
-            color: #aaa;
-        }
-
+        .filters-bar input::placeholder { color: #aaa; }
         .results-count {
             width: 100%;
             text-align: center;
@@ -167,10 +114,6 @@
             margin: 10px 0 0;
             font-weight: 500;
         }
-
-        /* ========================================
-           PRODUCTOS - GRID ESTILO ADIDAS
-           ======================================== */
         .products-grid {
             max-width: 1200px;
             margin: 0 auto;
@@ -179,7 +122,6 @@
             grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
             gap: 30px;
         }
-
         .product-card {
             background: white;
             border-radius: 12px;
@@ -193,7 +135,6 @@
             transform: translateY(-8px);
             box-shadow: 0 12px 40px rgba(0,0,0,0.12);
         }
-
         .product-image {
             width: 100%;
             height: 260px;
@@ -210,14 +151,12 @@
             font-size: 3em;
             color: #ccc;
         }
-
         .product-body {
             padding: 18px 20px 20px;
             flex: 1;
             display: flex;
             flex-direction: column;
         }
-
         .product-tags {
             display: flex;
             gap: 6px;
@@ -244,7 +183,6 @@
             padding: 2px 10px;
             border-radius: 20px;
         }
-
         .product-name {
             font-size: 1.1em;
             font-weight: 700;
@@ -258,7 +196,6 @@
             margin-bottom: 12px;
             flex: 1;
         }
-
         .product-footer {
             display: flex;
             justify-content: space-between;
@@ -278,13 +215,8 @@
             font-weight: 600;
             color: #27ae60;
         }
-        .product-stock.low {
-            color: #e67e22;
-        }
-        .product-stock.agotado {
-            color: #e74c3c;
-        }
-
+        .product-stock.low { color: #e67e22; }
+        .product-stock.agotado { color: #e74c3c; }
         .btn-add {
             background: #1a1a2e;
             color: white;
@@ -298,23 +230,9 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
-        .btn-add:hover {
-            background: #2d2d4a;
-            transform: scale(1.03);
-        }
-        .btn-add:disabled {
-            background: #ccc;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        /* ========================================
-           LOADING
-           ======================================== */
-        .loading-container {
-            text-align: center;
-            padding: 80px 20px;
-        }
+        .btn-add:hover { background: #2d2d4a; transform: scale(1.03); }
+        .btn-add:disabled { background: #ccc; cursor: not-allowed; transform: none; }
+        .loading-container { text-align: center; padding: 80px 20px; }
         .spinner {
             width: 50px;
             height: 50px;
@@ -324,30 +242,10 @@
             animation: spin 0.8s linear infinite;
             margin: 0 auto 20px;
         }
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        /* ========================================
-           NO RESULTS
-           ======================================== */
-        .no-results {
-            text-align: center;
-            padding: 80px 20px;
-            color: #666;
-        }
-        .no-results h2 {
-            font-size: 2em;
-            color: #1a1a1a;
-            margin-bottom: 8px;
-        }
-        .no-results p {
-            font-size: 1.1em;
-        }
-
-        /* ========================================
-           FOOTER
-           ======================================== */
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .no-results { text-align: center; padding: 80px 20px; color: #666; }
+        .no-results h2 { font-size: 2em; color: #1a1a1a; margin-bottom: 8px; }
+        .no-results p { font-size: 1.1em; }
         .footer {
             background: #1a1a2e;
             color: rgba(255,255,255,0.6);
@@ -356,81 +254,32 @@
             font-size: 0.85em;
             border-top: 1px solid rgba(255,255,255,0.05);
         }
-        .footer strong {
-            color: white;
-        }
-
-        /* ========================================
-           RESPONSIVE
-           ======================================== */
+        .footer strong { color: white; }
         @media (max-width: 768px) {
-            .header {
-                padding: 0 20px;
-                height: 60px;
-                flex-wrap: wrap;
-            }
-            .header .logo img {
-                height: 30px;
-            }
-            .header .nav-links {
-                display: none;
-            }
-            .hero .hero-overlay h1 {
-                font-size: 2.2em;
-            }
-            .hero .hero-overlay p {
-                font-size: 1em;
-            }
-            .filters-bar {
-                flex-direction: column;
-                align-items: stretch;
-                padding: 15px;
-                margin: -10px 15px 20px;
-            }
-            .filters-bar input,
-            .filters-bar select {
-                min-width: unset;
-            }
-            .products-grid {
-                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-                gap: 15px;
-                padding: 0 15px 40px;
-            }
-            .product-image {
-                height: 180px;
-            }
-            .product-body {
-                padding: 12px 14px 14px;
-            }
-            .product-price {
-                font-size: 1.1em;
-            }
+            .header { padding: 0 20px; height: 60px; flex-wrap: wrap; }
+            .header .logo img { height: 30px; }
+            .header .nav-links { display: none; }
+            .hero .hero-overlay h1 { font-size: 2.2em; }
+            .hero .hero-overlay p { font-size: 1em; }
+            .filters-bar { flex-direction: column; align-items: stretch; padding: 15px; margin: -10px 15px 20px; }
+            .filters-bar input, .filters-bar select { min-width: unset; }
+            .products-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 15px; padding: 0 15px 40px; }
+            .product-image { height: 180px; }
+            .product-body { padding: 12px 14px 14px; }
+            .product-price { font-size: 1.1em; }
         }
-
         @media (max-width: 480px) {
-            .products-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 12px;
-            }
-            .product-image {
-                height: 150px;
-            }
-            .product-name {
-                font-size: 0.9em;
-            }
-            .btn-add {
-                font-size: 0.7em;
-                padding: 6px 12px;
-            }
+            .products-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+            .product-image { height: 150px; }
+            .product-name { font-size: 0.9em; }
+            .btn-add { font-size: 0.7em; padding: 6px 12px; }
         }
     </style>
 </head>
 <body>
-    <!-- ===================== HEADER ===================== -->
     <header class="header">
         <div class="logo">
-            <img src="https://drive.google.com/uc?export=view&id=1fvmWJNtu1aHjfku0rRuKA7lKxNExCmVj" 
-                 alt="Vaperstag Logo">
+            <img src="https://lh3.googleusercontent.com/d/1fvmWJNtu1aHjfku0rRuKA7lKxNExCmVj" alt="Logo Tienda">
         </div>
         <div class="nav-links">
             <a>Nuevos</a>
@@ -444,18 +293,13 @@
             <span>👤</span>
         </div>
     </header>
-
-    <!-- ===================== HERO CON BANNER ===================== -->
     <section class="hero">
-        <img src="https://drive.google.com/uc?export=view&id=1x8-SPClNJ003F_qDaPc2Ymg95XUQvoVM" 
-             alt="Banner Vaperstag">
+        <img src="https://lh3.googleusercontent.com/d/1x8-SPClNJ003F_qDaPc2Ymg95XUQvoVM" alt="Banner Tienda">
         <div class="hero-overlay">
             <h1>NUEVA <span>COLECCIÓN</span></h1>
-            <p>JAGGER · 4 IN 1 · Diseño y rendimiento</p>
+            <p>Catálogo de Fragancias y Productos</p>
         </div>
     </section>
-
-    <!-- ===================== FILTROS ===================== -->
     <div class="filters-bar">
         <input type="text" id="searchInput" placeholder="Buscar productos..." oninput="filterProducts()">
         <select id="modeloFilter" onchange="filterProducts()">
@@ -471,25 +315,20 @@
             <option value="name">Nombre: A-Z</option>
         </select>
     </div>
-
-    <!-- ===================== PRODUCTOS ===================== -->
     <div id="productsContainer">
         <div class="loading-container">
             <div class="spinner"></div>
-            <p style="color: #666;">Cargando productos...</p>
+            <p style="color: #666;">Cargando catálogo...</p>
         </div>
     </div>
-
-    <!-- ===================== FOOTER ===================== -->
     <footer class="footer">
-        &copy; 2026 <strong>Vaperstag</strong> — Todos los derechos reservados.
+        &copy; 2026 <strong>Tienda Oficial</strong> — Todos los derechos reservados.
     </footer>
-
     <script>
         // ============================================
-        // CONFIGURACIÓN
+        // CONFIGURACIÓN - URL DE APPS SCRIPT
         // ============================================
-        const API_URL = "https://script.google.com/macros/s/AKfycbwhVw_mk6dPeYo8y2-x0hPspuzxRqx4LKYLXSGXMhNmkBdtI7yka0v2KRdGkPniBaLc/exec";
+        const API_URL = "https://script.google.com/macros/s/AKfycbz1SX9RGnaLK-rkF7lxP8Brk172F0iX0sfHuTAtCGC1avOYuHlH5vZsxkDcQ2HjXnrH/exec";
 
         let allProducts = [];
         let filteredProducts = [];
@@ -503,7 +342,7 @@
             container.innerHTML = `
                 <div class="loading-container">
                     <div class="spinner"></div>
-                    <p style="color: #666;">Cargando productos...</p>
+                    <p style="color: #666;">Cargando catálogo...</p>
                 </div>
             `;
 
@@ -528,7 +367,7 @@
                 container.innerHTML = `
                     <div class="no-results">
                         <h2>🔌 Error de conexión</h2>
-                        <p>No se pudo conectar con la tienda. Intenta de nuevo.</p>
+                        <p>No se pudo conectar con la base de datos. Intenta de nuevo.</p>
                         <p style="font-size:0.85em;color:#999;margin-top:8px;">${error.message}</p>
                     </div>
                 `;
@@ -540,7 +379,10 @@
         // ============================================
         function populateFilters(products) {
             const categories = new Set();
-            products.forEach(p => { if (p.Categoría) categories.add(p.Categoría); });
+            products.forEach(p => { 
+                const cat = p.Categoría || p.Categoria || p.categoria;
+                if (cat) categories.add(cat); 
+            });
 
             const catSelect = document.getElementById('categoryFilter');
             catSelect.innerHTML = '<option value="all">Todas las categorías</option>';
@@ -571,22 +413,25 @@
             const sort = document.getElementById('sortFilter').value;
 
             filteredProducts = allProducts.filter(p => {
-                const matchSearch = (p.Nombre || '').toLowerCase().includes(search) ||
-                                    (p.Descripción || '').toLowerCase().includes(search);
+                const nombre = p.Nombre || p.nombre || '';
+                const desc = p.Descripción || p.Descripcion || p.descripcion || '';
+                const cat = p.Categoría || p.Categoria || p.categoria || '';
+
+                const matchSearch = nombre.toLowerCase().includes(search) || desc.toLowerCase().includes(search);
                 const matchModelo = modelo === 'all' || p.modelo === modelo;
-                const matchCategory = category === 'all' || p.Categoría === category;
+                const matchCategory = category === 'all' || cat === category;
                 return matchSearch && matchModelo && matchCategory;
             });
 
             switch (sort) {
                 case 'price-asc':
-                    filteredProducts.sort((a, b) => parseFloat(a.Precio||0) - parseFloat(b.Precio||0));
+                    filteredProducts.sort((a, b) => parseFloat(a.Precio || a.precio || 0) - parseFloat(b.Precio || b.precio || 0));
                     break;
                 case 'price-desc':
-                    filteredProducts.sort((a, b) => parseFloat(b.Precio||0) - parseFloat(a.Precio||0));
+                    filteredProducts.sort((a, b) => parseFloat(b.Precio || b.precio || 0) - parseFloat(a.Precio || a.precio || 0));
                     break;
                 case 'name':
-                    filteredProducts.sort((a, b) => (a.Nombre||'').localeCompare(b.Nombre||''));
+                    filteredProducts.sort((a, b) => (a.Nombre || a.nombre || '').localeCompare(b.Nombre || b.nombre || ''));
                     break;
             }
 
@@ -599,7 +444,7 @@
         function renderProducts(products) {
             const container = document.getElementById('productsContainer');
 
-            if (products.length === 0) {
+            if (!products || products.length === 0) {
                 container.innerHTML = `
                     <div class="no-results">
                         <h2>🔍 Sin resultados</h2>
@@ -609,15 +454,35 @@
                 return;
             }
 
-            let html = `<div class="results-count">Mostrando ${products.length} producto${products.length>1?'s':''}</div>`;
+            let html = `<div class="results-count">Mostrando ${products.length} producto${products.length > 1 ? 's' : ''}</div>`;
             html += `<div class="products-grid">`;
 
             products.forEach(p => {
-                const img = p.ImagenURL ?
-                    `<img class="product-image" src="${p.ImagenURL}" alt="${p.Nombre||'Producto'}" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22300%22><rect width=%22300%22 height=%22300%22 fill=%22%23f0f0f0%22/><text x=%2250%%22 y=%2250%%22 font-family=%22Arial%22 font-size=%2230%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22>📷</text></svg>'">` :
-                    `<div class="product-image-placeholder">📷</div>`;
+                const nombre = p.Nombre || p.nombre || 'Producto';
+                const descripcion = p.Descripción || p.Descripcion || p.descripcion || 'Sin descripción';
+                const categoria = p.Categoría || p.Categoria || p.categoria || '';
+                const precio = p.Precio || p.precio;
+                const stock = parseInt(p.Stock || p.stock) || 0;
+                const id = p.ID || p.id;
+                const urlRaw = p.ImagenURL || p.imagenURL || p.ImagenUrl || p["Imagen URL"] || '';
 
-                const stock = parseInt(p.Stock) || 0;
+                // Procesamiento directo de imagen de Drive
+                let imgSrc = '';
+                if (p.imagenBase64) {
+                    imgSrc = p.imagenBase64;
+                } else if (urlRaw) {
+                    const match = urlRaw.match(/\/d\/([a-zA-Z0-9_-]+)/) || urlRaw.match(/id=([a-zA-Z0-9_-]+)/);
+                    if (match && match[1]) {
+                        imgSrc = `https://lh3.googleusercontent.com/d/${match[1]}`;
+                    } else {
+                        imgSrc = urlRaw;
+                    }
+                }
+
+                const imgHTML = imgSrc 
+                    ? `<img class="product-image" src="${imgSrc}" alt="${nombre}" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'product-image-placeholder\'>📷</div>';">`
+                    : `<div class="product-image-placeholder">📷</div>`;
+
                 let stockClass = 'product-stock';
                 let stockText = `📦 ${stock} unidades`;
                 if (stock === 0) { stockClass += ' agotado'; stockText = '❌ Agotado'; }
@@ -628,20 +493,20 @@
 
                 html += `
                     <div class="product-card">
-                        ${img}
+                        ${imgHTML}
                         <div class="product-body">
                             <div class="product-tags">
                                 ${p.modelo ? `<span class="product-model">${p.modelo}</span>` : ''}
-                                ${p.Categoría ? `<span class="product-category">${p.Categoría}</span>` : ''}
+                                ${categoria ? `<span class="product-category">${categoria}</span>` : ''}
                             </div>
-                            <div class="product-name">${p.Nombre || 'Producto'}</div>
-                            <div class="product-description">${p.Descripción || 'Sin descripción'}</div>
+                            <div class="product-name">${nombre}</div>
+                            <div class="product-description">${descripcion}</div>
                             <div class="product-footer">
                                 <div>
-                                    <div class="product-price">${p.Precio ? '€' + parseFloat(p.Precio).toFixed(2) : 'Precio N/D'}</div>
+                                    <div class="product-price">${precio ? '€' + parseFloat(precio).toFixed(2) : 'Consultar'}</div>
                                     <div class="${stockClass}">${stockText}</div>
                                 </div>
-                                <button class="btn-add" ${btnDisabled} onclick="addToCart(${p.ID})">${btnText}</button>
+                                <button class="btn-add" ${btnDisabled} onclick="addToCart('${id}')">${btnText}</button>
                             </div>
                         </div>
                     </div>
@@ -653,19 +518,20 @@
         }
 
         // ============================================
-        // CARRITO (WhatsApp)
+        // CARRITO / PEDIDO
         // ============================================
         function addToCart(id) {
-            const product = allProducts.find(p => p.ID == id);
+            const product = allProducts.find(p => (p.ID == id || p.id == id));
             if (!product) return;
 
-            const mensaje = `Hola! Quiero comprar: ${product.Nombre} (${product.modelo||''}) - €${parseFloat(product.Precio).toFixed(2)}`;
-            // Cambia el número por el tuyo
-            window.open(`https://wa.me/34XXXXXXXXX?text=${encodeURIComponent(mensaje)}`, '_blank');
+            const precio = (product.Precio || product.precio) ? parseFloat(product.Precio || product.precio).toFixed(2) : '0.00';
+            const nombre = product.Nombre || product.nombre || 'Producto';
+            const mensaje = `Hola! Quisiera información sobre: ${nombre} (${product.modelo || ''}) - €${precio}`;
+            window.open(`https://wa.me/34000000000?text=${encodeURIComponent(mensaje)}`, '_blank');
         }
 
         // ============================================
-        // INICIAR
+        // INICIALIZACIÓN
         // ============================================
         loadProducts();
     </script>
